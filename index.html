@@ -1,3 +1,42 @@
-<div style="left: 0; width: 100%; height: 100vh; position: relative;">
-  <iframe src="https://docs.google.com/viewer?embedded=true&url=https%3A%2F%2Fstorage.googleapis.com%2Fglide-prod.appspot.com%2Fuploads-v2%2FqHuL7GrTFStnbLIAfH7W%2Fpub%2FLliNQWR0lpFZV6HNBnFG%2F3_3%252010427171A-018-100_REV0.pdf" style="top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;" ></iframe>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Embedded PDF Viewer with Zoom Effect</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+    .embed-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      transition: transform 0.3s ease; /* Smooth transition */
+    }
+    .embed-container:hover iframe {
+      transform: scale(2); /* Zoom in on hover */
+    }
+  </style>
+</head>
+<body>
+  <div class="embed-container">
+    <iframe src="https://docs.google.com/viewer?embedded=true&url=https%3A%2F%2Fstorage.googleapis.com%2Fglide-prod.appspot.com%2Fuploads-v2%2FqHuL7GrTFStnbLIAfH7W%2Fpub%2FLliNQWR0lpFZV6HNBnFG%2F3_3%252010427171A-018-100_REV0.pdf" allowfullscreen></iframe>
+  </div>
+</body>
+</html>
