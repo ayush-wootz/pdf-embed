@@ -1,11 +1,32 @@
-<div id="adobe-dc-view" style="height: 360px; width: 500px;"></div>
-<script src="https://acrobatservices.adobe.com/view-sdk/viewer.js"></script>
-<script type="text/javascript">
-	document.addEventListener("adobe_dc_view_sdk.ready", function(){ 
-		var adobeDCView = new AdobeDC.View({clientId: "2d231f34c6d74b21afbcfa0458d3c57e", divId: "adobe-dc-view"});
-		adobeDCView.previewFile({
-			content:{location: {url: "https://storage.googleapis.com/glide-prod.appspot.com/uploads-v2/qHuL7GrTFStnbLIAfH7W/pub/B88Qpt60YG7unTDvQY9I/4_3%2010427171A-018-100_REV0.pdf"}},
-			metaData:{fileName: "Bodea Brochure.pdf"}
-		}, {embedMode: "SIZED_CONTAINER"});
-	});
-</script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Embed</title>
+    <script src="https://acrobatservices.adobe.com/view-sdk/viewer.js"></script>
+</head>
+<body>
+    <div id="adobe-dc-view" style="height: 360px; width: 100%;"></div>
+    <script type="text/javascript">
+        // Function to get URL parameters
+        function getQueryParam(param) {
+            let urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+
+        document.addEventListener("adobe_dc_view_sdk.ready", function() {
+            var adobeDCView = new AdobeDC.View({clientId: "YOUR_CLIENT_ID", divId: "adobe-dc-view"});
+            var pdfUrl = getQueryParam('pdfUrl');
+            if (pdfUrl) {
+                adobeDCView.previewFile({
+                    content: { location: { url: pdfUrl } },
+                    metaData: { fileName: "Document.pdf" }
+                }, { embedMode: "SIZED_CONTAINER" });
+            } else {
+                document.getElementById('adobe-dc-view').innerHTML = "No PDF URL provided.";
+            }
+        });
+    </script>
+</body>
+</html>
