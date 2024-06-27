@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Embedded PDF Viewer</title>
   <style>
-    body, html {
+    html, body {
       margin: 0;
       padding: 0;
       width: 100%;
@@ -16,13 +16,16 @@
       position: absolute;
       top: 0;
       left: 0;
-      width: 100%;
-      height: 100%;
+      right: 0;
+      bottom: 0;
       display: flex;
       align-items: center;
       justify-content: center;
     }
     iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
       width: 100%;
       height: 100%;
       border: none;
@@ -31,7 +34,7 @@
 </head>
 <body>
   <div class="embed-container">
-    <iframe src="https://storage.googleapis.com/glide-prod.appspot.com/uploads-v2/qHuL7GrTFStnbLIAfH7W/pub/LliNQWR0lpFZV6HNBnFG/3_3%2010427171A-018-100_REV0.pdf" scrolling="no" frameborder="0" allowfullscreen></iframe>
+    <iframe src="https://storage.googleapis.com/glide-prod.appspot.com/uploads-v2/qHuL7GrTFStnbLIAfH7W/pub/LliNQWR0lpFZV6HNBnFG/3_3%2010427171A-018-100_REV0.pdf" frameborder="0" scrolling="no" allowfullscreen></iframe>
   </div>
 </body>
 </html>
