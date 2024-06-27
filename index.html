@@ -11,35 +11,30 @@
             padding: 0;
             height: 100%;
             width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
         #adobe-dc-view {
-            height: 100%;
-            width: 100%;
+            width: 700px;   /* Fixed width */
+            height: 412px;  /* Fixed height to maintain 1.7 aspect ratio */
+            background-color: #fff; /* Optional, to give it a paper-like background */
         }
     </style>
 </head>
 <body>
     <div id="adobe-dc-view"></div>
     <script type="text/javascript">
-        // Function to get URL parameters
-        function getQueryParam(param) {
-            let urlParams = new URLSearchParams(window.location.search);
-            return urlParams.get(param);
-        }
-
-        document.addEventListener("adobe_dc_view_sdk.ready", function() {
-            var adobeDCView = new AdobeDC.View({clientId: "2d231f34c6d74b21afbcfa0458d3c57e", divId: "adobe-dc-view"});
-            var pdfUrl = getQueryParam('pdfUrl');
-            if (pdfUrl) {
-                adobeDCView.previewFile({
-                    content: { location: { url: pdfUrl } },
-                    metaData: { fileName: "Document.pdf" }
-                }, { embedMode: "SIZED_CONTAINER" });
-            } else {
-                document.getElementById('adobe-dc-view').innerHTML = "No PDF URL provided.";
-            }
+        document.addEventListener("adobe_dc_view_sdk.ready", function(){ 
+            var adobeDCView = new AdobeDC.View({clientId: "<YOUR_CLIENT_ID>", divId: "adobe-dc-view"});
+            adobeDCView.previewFile({
+                content:{location: {url: "https://acrobatservices.adobe.com/view-sdk-demo/PDFs/Bodea Brochure.pdf"}},
+                metaData:{fileName: "Bodea Brochure.pdf"}
+            }, {});
         });
     </script>
 </body>
 </html>
+
+
 
