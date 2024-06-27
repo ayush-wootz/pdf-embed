@@ -16,7 +16,7 @@
         }
 
         document.addEventListener("adobe_dc_view_sdk.ready", function() {
-            var adobeDCView = new AdobeDC.View({clientId: "YOUR_CLIENT_ID", divId: "adobe-dc-view"});
+            var adobeDCView = new AdobeDC.View({clientId: "2d231f34c6d74b21afbcfa0458d3c57e", divId: "adobe-dc-view"});
             var pdfUrl = getQueryParam('pdfUrl');
             if (pdfUrl) {
                 adobeDCView.previewFile({
