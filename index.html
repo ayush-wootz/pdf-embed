@@ -15,8 +15,8 @@
       background-color: #f0f0f0;
     }
     #adobe-dc-view {
-      height: 500px;
-      width: 800px;
+      height: 100vh;
+      width: 100vw;
     }
   </style>
   <script src="https://acrobatservices.adobe.com/view-sdk/viewer.js"></script>
@@ -29,7 +29,7 @@
       adobeDCView.previewFile({
         content: {location: {url: "https://storage.googleapis.com/glide-prod.appspot.com/uploads-v2/qHuL7GrTFStnbLIAfH7W/pub/msghwz7XhyJ9ZJwA5fw9/3_2%20CABL-02-0003_REV0.pdf"}},
         metaData: {fileName: "3_2 CABL-02-0003_REV0.pdf"}
-      }, {embedMode: "SIZED_CONTAINER", showDownloadPDF: false, showPrintPDF: false, showFullScreen: false});
+      }, {embedMode: "IN_LINE", showDownloadPDF: false, showPrintPDF: false, showFullScreen: false});
     });
   </script>
 </body>
