@@ -3,53 +3,33 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Interactive Zoom on Hover</title>
+  <title>Embedded PDF</title>
   <style>
-    html, body {
+    body {
       margin: 0;
       padding: 0;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f0f0f0;
     }
-    .wire-container {
-      position: relative!important;
-      width: 100%!important;
-      height: 100%!important;
-      overflow: visible!important; /* Allow overflow */
+    .iframe-container {
+      width: 300px;
+      height: 210px;
+      overflow: hidden;
     }
     iframe {
       width: 100%;
       height: 100%;
-      border: none;
-      transition: transform 0.3s ease, transform-origin 0.3s ease; /* Smooth transition */
+      border: 0;
     }
   </style>
 </head>
 <body>
-  <div class="embed-container" id="embed-container">
-    <iframe id="pdf-iframe" src="https://docs.google.com/viewer?embedded=true&url=https%3A%2F%2Fstorage.googleapis.com%2Fglide-prod.appspot.com%2Fuploads-v2%2FqHuL7GrTFStnbLIAfH7W%2Fpub%2FLliNQWR0lpFZV6HNBnFG%2F3_3%252010427171A-018-100_REV0.pdf" allowfullscreen></iframe>
+  <div class="iframe-container">
+    <iframe src="https://storage.googleapis.com/glide-prod.appspot.com/uploads-v2/qHuL7GrTFStnbLIAfH7W/pub/msghwz7XhyJ9ZJwA5fw9/3_2%20CABL-02-0003_REV0.pdf" frameborder="0"></iframe>
   </div>
-
-  <script>
-    const container = document.getElementById('embed-container');
-    const iframe = document.getElementById('pdf-iframe');
-
-    container.addEventListener('mousemove', (e) => {
-      const rect = container.getBoundingClientRect();
-      const x = e.clientX - rect.left; // x position within the container
-      const y = e.clientY - rect.top;  // y position within the container
-
-      const percentX = x / rect.width * 100;
-      const percentY = y / rect.height * 100;
-
-      iframe.style.transformOrigin = `${percentX}% ${percentY}%`;
-      iframe.style.transform = 'scale(1.5)'; // Adjust the scale as needed
-    });
-
-    container.addEventListener('mouseleave', () => {
-      iframe.style.transform = 'scale(1)';
-    });
-  </script>
+  <br>Brought to you by <a href="" target="_blank"></a>
 </body>
 </html>
