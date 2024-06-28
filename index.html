@@ -17,8 +17,8 @@
       background-color: #f0f0f0;
     }
     #adobe-dc-view {
-      height: 180px;
-      width: 250px;
+      height: 360px;
+      width: 500px;
     }
   </style>
   <script src="https://acrobatservices.adobe.com/view-sdk/viewer.js"></script>
@@ -29,11 +29,11 @@
     document.addEventListener("adobe_dc_view_sdk.ready", function() { 
       var adobeDCView = new AdobeDC.View({clientId: "2d231f34c6d74b21afbcfa0458d3c57e", divId: "adobe-dc-view"});
       adobeDCView.previewFile({
-        content: {location: {url: "https://storage.googleapis.com/glide-prod.appspot.com/uploads-v2/qHuL7GrTFStnbLIAfH7W/pub/nbbBnZykBJ99WlmvUyMI/6_%2010427171A-003-FA19_REV0.pdf"}},
+        content: {location: {url: "https://storage.googleapis.com/glide-prod.appspot.com/uploads-v2/qHuL7GrTFStnbLIAfH7W/pub/ph0YZwAfyUxiMxTqVIz3/6_1%2010427171A-003-103_REV0.pdf"}},
         metaData: {fileName: "Bodea Brochure.pdf"}
       }, {embedMode: "SIZED_CONTAINER", showDownloadPDF: false, showPrintPDF: false, showFullScreen: false}).then(function(viewer) {
         viewer.getAPIs().then(function(apis) {
-          apis.setZoom("fitPage");
+          apis.setZoom({zoomMode: "FIT_PAGE"});
         });
       });
     });
