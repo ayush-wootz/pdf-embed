@@ -33,7 +33,7 @@
         metaData: {fileName: "Bodea Brochure.pdf"}
       }, {embedMode: "SIZED_CONTAINER", showDownloadPDF: false, showPrintPDF: false, showFullScreen: false}).then(function(viewer) {
         viewer.getAPIs().then(function(apis) {
-          apis.zoomSetZoom({zoomMode: "FIT_PAGE"});
+          apis.setZoom("fitPage");
         });
       });
     });
