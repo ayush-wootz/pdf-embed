@@ -11,11 +11,15 @@
       width: 100%;
       height: 100%;
       overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       background-color: #f0f0f0;
     }
     #adobe-dc-view {
+      width: 800px;
       height: 100vh;
-      width: 100vw;
+      box-sizing: border-box; /* Ensures padding and border are included in the element's total width and height */
     }
   </style>
   <script src="https://acrobatservices.adobe.com/view-sdk/viewer.js"></script>
@@ -23,12 +27,12 @@
 <body>
   <div id="adobe-dc-view"></div>
   <script type="text/javascript">
-    document.addEventListener("adobe_dc_view_sdk.ready", function() { 
-      var adobeDCView = new AdobeDC.View({clientId: "2d231f34c6d74b21afbcfa0458d3c57e", divId: "adobe-dc-view"});
+    document.addEventListener("adobe_dc_view_sdk.ready", function(){ 
+      var adobeDCView = new AdobeDC.View({clientId: "<YOUR_CLIENT_ID>", divId: "adobe-dc-view"});
       adobeDCView.previewFile({
         content: {location: {url: "https://storage.googleapis.com/glide-prod.appspot.com/uploads-v2/qHuL7GrTFStnbLIAfH7W/pub/msghwz7XhyJ9ZJwA5fw9/3_2%20CABL-02-0003_REV0.pdf"}},
-        metaData: {fileName: "3_2 CABL-02-0003_REV0.pdf"}
-      }, {embedMode: "IN_LINE", showDownloadPDF: false, showPrintPDF: false, showFullScreen: false});
+        metaData: {fileName: "Bodea Brochure.pdf"}
+      }, {embedMode: "IN_LINE", showDownloadPDF: false, showPrintPDF: false});
     });
   </script>
 </body>
