@@ -7,7 +7,7 @@
     <script src="https://acrobatservices.adobe.com/view-sdk/viewer.js"></script>
 </head>
 <body>
-    <div id="adobe-dc-view" style="height: 360px; width: 100%;"></div>
+    <div id="adobe-dc-view"></div>
     <script type="text/javascript">
         // Function to get URL parameters
         function getQueryParam(param) {
@@ -15,19 +15,14 @@
             return urlParams.get(param);
         }
 
-        document.addEventListener("adobe_dc_view_sdk.ready", function() {
+        document.addEventListener("adobe_dc_view_sdk.ready", function(){ 
             var adobeDCView = new AdobeDC.View({clientId: "2d231f34c6d74b21afbcfa0458d3c57e", divId: "adobe-dc-view"});
-            var pdfUrl = getQueryParam('pdfUrl');
-            if (pdfUrl) {
-                adobeDCView.previewFile({
-                    content: { location: { url: pdfUrl } },
-                    metaData: { fileName: "Document.pdf" }
-                }, { embedMode: "SIZED_CONTAINER" });
-            } else {
-                document.getElementById('adobe-dc-view').innerHTML = "No PDF URL provided.";
-            }
+            var pdfUrl = getQueryParam('pdfUrl') || "https://acrobatservices.adobe.com/view-sdk-demo/PDFs/Bodea Brochure.pdf"; // Default URL if parameter is not provided
+            adobeDCView.previewFile({
+                content: { location: { url: pdfUrl } },
+                metaData: { fileName: "Document.pdf" }
+            }, {});
         });
     </script>
 </body>
 </html>
-
