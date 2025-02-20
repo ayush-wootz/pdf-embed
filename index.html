@@ -1,6 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PDF Embed Test</title>
+  <script type="text/javascript">
+    // Function to get URL parameters
+    function getQueryParam(param) {
+      let urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get(param);
+    }
+    
+    // Function that initializes the Adobe PDF Embed API viewer
+    function initializePDFViewer() {
+      var adobeDCView = new AdobeDC.View({
+        clientId: "bea5c184d36e4ce297265b750571176e",
+        divId: "adobe-dc-view"
+      });
+      var pdfUrl = getQueryParam('pdfUrl') || "https://acrobatservices.adobe.com/view-sdk-demo/PDFs/Bodea Brochure.pdf";
+      adobeDCView.previewFile({
+        content: { location: { url: pdfUrl } },
+        metaData: { fileName: "Document.pdf" }
+      }, { defaultViewMode: "FIT_WIDTH" });
+    }
+    
+    // Register the event listener before viewer.js is loaded
+    document.addEventListener("adobe_dc_view_sdk.ready", initializePDFViewer);
+  </script>
+</head>
+<body>
+  <div id="adobe-dc-view"></div>
+  <!-- Load the Adobe viewer SDK after our listener is in place -->
+  <script src="https://acrobatservices.adobe.com/view-sdk/viewer.js"></script>
+</body>
+</html>
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PDF Embed</title>
@@ -26,3 +64,4 @@
     </script>
 </body>
 </html>
+ -->
